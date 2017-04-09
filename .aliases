@@ -1,0 +1,19 @@
+#!/bin/bash
+# vim: set filetype=sh :
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+alias -- -="cd -"
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m \"$method\""
+done
+
+alias cwd='pwd | tr -d "\r\n" | pbcopy'
+alias grep='grep --color=auto '
+alias sudo='sudo '
+alias ls="command ls -G"
