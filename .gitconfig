@@ -8,4 +8,4 @@
 [credential]
 	helper = osxkeychain
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/gitignore
