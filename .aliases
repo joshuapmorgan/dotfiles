@@ -17,3 +17,4 @@ alias cwd='pwd | tr -d "\r\n" | pbcopy'
 alias grep='grep --color=auto '
 alias sudo='sudo '
 alias ls="command ls -G"
+alias realpath='python -c "import os, sys; print os.path.realpath(sys.argv[1])"'

@@ -1,3 +1,5 @@
+.PHONY: dotfiles
+
 all: dotfiles
 
 dotfiles:
