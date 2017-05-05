@@ -6,7 +6,7 @@ prompt_virtualenv() {
 
 	if [[ -n "$VIRTUAL_ENV" ]]; then
 		venv="${VIRTUAL_ENV##*/}"
-		echo -e "${red}(${venv})"
+		echo -e "${red}(venv: ${venv}) "
 	else
 		return
 	fi
@@ -117,7 +117,7 @@ fi;
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]\n"; # newline
-PS1+="\$(prompt_virtualenv)\n";
+PS1+="\$(prompt_virtualenv)";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]${cloud}\h"; # host
