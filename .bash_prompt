@@ -1,6 +1,19 @@
 #!/bin/bash
 # vim: set filetype=sh :
 
+prompt_virtualenv() {
+	local venv='';
+
+	if [[ -n "$VIRTUAL_ENV" ]]; then
+		venv="${VIRTUAL_ENV##*/}"
+		echo -e "${red}(${venv})"
+	else
+		return
+	fi
+}
+
+export -f prompt_virtualenv
+
 prompt_git() {
 	local s='';
 	local branchName='';
@@ -104,6 +117,7 @@ fi;
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]\n"; # newline
+PS1+="\$(prompt_virtualenv)\n";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]${cloud}\h"; # host
