@@ -34,6 +34,8 @@ set noswapfile
 
 set encoding=utf-8
 
+set clipboard=unnamed
+
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1

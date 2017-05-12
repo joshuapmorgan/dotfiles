@@ -18,3 +18,28 @@ server() {
 	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
+
+pman() {
+	if [ ! $(uname) = "Darwin" ]; then
+		echo "This function only works with macOS"
+		return 1
+	fi
+	local PREVIEW="/Applications/Preview.app"
+	man -t "${1}" | open -fa $PREVIEW
+}
+
+if $(command -v pygmentize &> /dev/null) ; then
+	CAT_BIN=$(which cat)
+	LESS_BIN=$(which less)
+
+	cat() {
+		for var;
+		do
+			pygmentize "$var" 2>/dev/null || "$CAT_BIN" "$var";
+		done
+	}
+
+	less() {
+		pygmentize -g $* | "$LESS_BIN" -R
+	}
+fi
