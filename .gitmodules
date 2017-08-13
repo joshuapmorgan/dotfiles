@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-terraform"]
 	path = .vim/bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform
+[submodule ".vim/bundle/jedi-vim"]
+	path = .vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git

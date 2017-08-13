@@ -55,6 +55,8 @@ au BufNewFile,BufReadPost *.md set filetype=markdown
 
 " python indent
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
+" hashicorp hcl indent
+autocmd BufNewFile,BufRead *.tf,*.tfvars setlocal tabstop=2 softtabstop=2 shiftwidth=2 textwidth=80 smarttab expandtab
 
 "==================== NerdTree ====================
 "" For toggling
